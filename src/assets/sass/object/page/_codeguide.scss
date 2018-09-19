@@ -1,0 +1,159 @@
+// =====================================================
+//
+// codeguide用 Style
+//
+// =====================================================
+
+.test {
+  // @include grad;
+  // background: linear-gradient(to left, #f00, #00f, #0f0);
+  // @include hr(#f00, #00f, 10px);
+  // @include trs;
+  // user-select: none;
+  // appearance: none;
+  // @include angled-edge
+}//.test
+
+.sample_img {
+  background-size: cover;
+  height: 200px;
+}// .sample_img
+
+.no-effect {
+  background: url('../img/sample.jpg') no-repeat left top;
+}// .no-effect
+
+.pencil-effect {
+  @include pencil-effect('../img/sample.jpg');
+}// .pencil-effect
+
+.watercolor-effect {
+  @include watercolor-effect('../img/sample.jpg');
+}// .watercolor-effect
+
+.emboss-effect {
+  @include emboss-effect('../img/sample.jpg');
+}// .emboss-effect
+
+.colored-pencil-effect {
+  @include colored-pencil-effect('../img/sample.jpg');
+}// .colored-pencil-effect
+
+.chalkboard-effect {
+  @include chalkboard-effect('../img/sample.jpg');
+}// .chalkboard-effect
+
+.colored-chalkboard-effect {
+  @include colored-chalkboard-effect('../img/sample.jpg');
+}// .colored-chalkboard-effect
+
+.airbrush-effect {
+  @include airbrush-effect('../img/sample.jpg');
+}// .airbrush-effect
+
+.hallucination-effect {
+  @include hallucination-effect('../img/sample.jpg');
+}// .hallucination-effect
+
+.flannel-effect {
+  @include flannel-effect('../img/sample.jpg');
+}// .flannel-effect
+
+.low-ink-x-effect {
+  @include low-ink-x-effect('../img/sample.jpg');
+}// .low-ink-x-effect
+
+.low-ink-y-effect {
+  @include low-ink-y-effect('../img/sample.jpg');
+}// .low-ink-y-effect
+
+.collage-effect {
+  @include collage-effect('../img/sample.jpg');
+}// .collage-effect
+
+.mosaic-effect {
+  @include mosaic-effect('../img/sample.jpg');
+}// .mosaic-effect
+
+.photo-border-effect {
+  @include photo-border-effect('../img/sample.jpg');
+}// .photo-border-effect
+
+.infrared-effect {
+  @include infrared-effect('../img/sample.jpg');
+}// .infrared-effect
+
+.night-vision-effect {
+  @include night-vision-effect('../img/sample.jpg');
+}// .night-vision-effect
+
+.warhol-effect {
+  @include warhol-effect('../img/sample.jpg');
+}// .warhol-effect
+
+.selective-color-effect {
+  @include selective-color-effect('../img/sample.jpg');
+}// .selective-color-effect
+
+.mirror-x-effect {
+  @include mirror-x-effect('../img/sample.jpg');
+}// .mirror-x-effect
+
+.mirror-y-effect {
+  @include mirror-y-effect('../img/sample.jpg');
+}// .mirror-y-effect
+
+.vue-carousel{
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+  width: 300px;
+  &_body{
+    color: #fff;
+    height: 150px;
+    left: 0;
+    line-height: 150px;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 100%;
+  }
+  &_footer{
+    align-items: center;
+    display: flex;
+    height: 50px;
+    justify-content: space-between;
+    position: absolute;
+    top: 150px;
+    width: 100%;
+    &_dot{
+      background-color: #abc2ce;
+      border-radius: 50%;
+      height: 26px;
+      width: 26px;
+      cursor: pointer;
+      &.is-visible{
+        background-color: #7b94f9;
+        cursor: default;
+      }
+    }
+  }
+}
+
+// 進むトランジションと戻るトランジションをそれぞれ用意
+.show-next-enter-active, .show-next-leave-active,
+.show-prev-enter-active, .show-prev-leave-active  {
+  transition: all .4s;
+}
+.show-next-enter, .show-prev-leave-to {
+  transform: translateX(100%);
+}
+.show-next-leave-to, .show-prev-enter {
+  transform: translateX(-100%);
+}
+
+.test_hogege {
+  display: grid;
+  width: width('img/sample.jpg');
+  height: height('img/sample.jpg');
+}

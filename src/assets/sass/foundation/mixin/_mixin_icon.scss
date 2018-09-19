@@ -1,0 +1,56 @@
+// -------------------------------------------
+// icon
+// -------------------------------------------
+
+// circle
+// ================================== //
+@mixin circle( $size ){
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+}
+
+// arrow
+// ================================== //
+@mixin triangle( $direction: right, $color: #000, $reverse: manual, $size1: 6, $size2: 6 ){
+  $set1: left;
+  $set2: top;
+  $set3: bottom;
+  @if $reverse == "square" {
+    $size2: $size1;
+  } @elseif $reverse == "manual" {
+    $size2: $size2;
+  } @elseif $reverse == "normal" {
+    $size2: (($size1 * 4) / 3) / 2;
+  } @else {
+    $size2: (($size1 * 3) / 4) / 2;
+  }
+  @if $direction == left {
+    $set1: right;
+    $set2: top;
+    $set3: bottom;
+  } @elseif $direction == top {
+    $set1: bottom;
+    $set2: right;
+    $set3: left;
+  } @elseif $direction == bottom {
+    $set1: top;
+    $set2: right;
+    $set3: left;
+  } @else {
+    $set1: left;
+    $set2: top;
+    $set3: bottom;
+  }
+  // $size: round($size / 2);
+  display: block;
+  width: 0;
+  height: 0;
+  border: $size1 + px solid transparent;
+  border-#{$set1}-color: $color;
+  border-#{$set2}-width: $size2 + px;
+  border-#{$set3}-width: $size2 + px;
+}

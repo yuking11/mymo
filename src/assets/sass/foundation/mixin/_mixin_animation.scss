@@ -1,0 +1,17 @@
+// -------------------------------------------
+// animation
+// -------------------------------------------
+
+@mixin keyframes($name){
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+@mixin animation($name, $duration: .5, $timing: null, $delay: null, $count: null, $direction: null) {
+  #{animation}: $name ($duration + s) $timing $delay $count $direction;
+}
+
+@mixin trs($prop: 'all', $time: .25, $type: 'ease-out') {
+  transition: $prop #{$time}s $type;
+}

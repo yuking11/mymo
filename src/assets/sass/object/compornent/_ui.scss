@@ -1,0 +1,167 @@
+//=====================================================
+//
+// UI Style
+//
+// =====================================================
+
+// overlay
+// ================================== //
+.c-overlay {
+
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 9999;
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  background-color: #FFF;
+
+  @include mq(sp, max, true) {
+  }// @include mq(sp, max, true)
+  @include mq(pc) {
+  }// @include mq(pc)
+}// .c-overlay
+
+// initial
+// ================================== //
+
+// animation
+@include keyframes(c-tab_show) {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+// タブの数
+$tab_length: 5;
+
+
+// タブ切り替え
+// ================================== //
+.c-tab {
+
+  .c-tab_list {
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-start;
+    border-bottom: 1px solid #CCC;
+    .list_item {
+      &:not(:last-child) {
+        margin-right: $ct_gutter;
+      }// &:not(:first-child)
+    }// .list_item
+  }// .c-tab_list
+
+  .c-tab_label {
+    display: block;
+    padding: $ct_gutter_half $ct_gutter;
+    border: 1px solid #CCC;
+    border-bottom: none;
+    border-radius: 5px 5px 0 0;
+    &:hover {
+      background-color: #FFE;
+    }// &:hover
+  }// .c-tab_label
+
+  .c-tab_ctrl {
+    display: none;
+  }// .c-tab_ctrl
+
+  .c-tab_panel {
+    border: 1px solid #CCC;
+    border-top: none;
+    .panel_item {
+      display: none;
+      padding: $ct_gutter;
+    }// .panel_item
+  }// .c-tab_panel
+
+  $tmp: 0;
+  @for $i from 1 through $tab_length {
+    @if $i < 10 {
+      $tmp: "0#{$i}";
+    } @else {
+      $tmp: $i;
+    }// @if
+    #c-tab_ctrl-#{$tmp}:checked {
+      ~ .c-tab_list {
+        #c-tab_label-#{$tmp} {
+          background-color: #FFE;
+        }// #c-tab_label-#{$tmp}
+      }// ~ .c-tab_head
+      ~ .c-tab_panel {
+        #c-tab_panel-#{$tmp} {
+          display: block;
+          @include animation( $name: c-tab_show );
+        }// #c-tab_panel-#{$tmp}
+      }// ~ .c-tab_panel
+    }// #c-tab_ctrl-#{$tmp}:checked
+  }// @for
+
+  @include mq(sp, max, true) {
+  }// @include mq(sp, max, true)
+  @include mq(tab) {
+  }// @include mq(tab)
+  @include mq(pc) {
+  }// @include mq(pc)
+  @include mq(wide) {
+  }// @include mq(wide)
+}// .c-tab
+
+
+// アコーディオン
+// ================================== //
+.c-acc {
+
+  border: 1px solid #CCC;
+  border-bottom: none;
+
+  .c-acc_label {
+    display: block;
+    padding: $ct_gutter_half $ct_gutter;
+    border-bottom: 1px solid #CCC;
+    &:hover {
+      background-color: #FFE;
+    }// &:hover
+  }// .c-acc_label
+
+  .c-acc_ctrl {
+    display: none;
+  }// .c-acc_ctrl
+
+  .c-acc_contents {
+    overflow: hidden;
+    max-height: 0;
+    transition: all .25s ease-out;
+  }// .c-acc_contents
+
+  .c-acc_contents_inner {
+    padding: $ct_gutter;
+    border-bottom: 1px solid #CCC;
+  }// .c-acc_contents_inner
+
+  .c-acc_ctrl:checked {
+    ~ .c-acc_label {
+      background-color: #FFE;
+    }// ~ .c-acc_label
+    ~ .c-acc_contents {
+      max-height: 1000vh;
+      transition: all 1s ease-in;
+    }// ~ .c-acc_contents
+  }// .c-acc_ctrl:checked
+
+  @include mq(sp, max, true) {
+  }// @include mq(sp, max, true)
+  @include mq(tab) {
+  }// @include mq(tab)
+  @include mq(pc) {
+  }// @include mq(pc)
+  @include mq(wide) {
+  }// @include mq(wide)
+}// .c-acc
+

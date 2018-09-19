@@ -1,0 +1,117 @@
+//=====================================================
+//
+// Button Style
+//
+// =====================================================
+
+// button
+// ================================== //
+.c-btn {
+
+  display: inline-block;
+  vertical-align: middle;
+  background: $btn_bg_color_default;
+  margin: 0;
+  padding: ($ct_gutter * .75) ($ct_gutter * 2);
+  border-radius: 3px;
+  color: $btn_txt_color_default;
+  font-size: fs(16);
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: none;
+  line-height: 1.2;
+  transition: all .35s;
+  &:hover, &:focus {
+    background: lighten($btn_bg_color_default, 10%);
+    color: $btn_txt_color_default;
+  }// &:hover, &:focus
+
+  // wide
+  &-wide {
+    width: 100%;
+  }// &-wide
+
+  @include mq(sp, max, true) {
+
+    // small
+    &-x_small {
+      font-size: fs(13);
+      padding: ($ct_gutter * .375) ($ct_gutter * .75);
+    }// &-x_small
+    &-small {
+      font-size: fs(14);
+      padding: ($ct_gutter * .5) ($ct_gutter * 1);
+    }// &-small
+
+  }// @include mq(sp, max, true)
+  @include mq(pc) {
+
+    // small
+    &-x_small {
+      font-size: fs(14);
+      padding: ($ct_gutter * .25) ($ct_gutter * .5);
+    }// &-x_small
+    &-small {
+      font-size: fs(15);
+      padding: ($ct_gutter * .375) ($ct_gutter * 1);
+    }// &-small
+
+  }// @include mq(pc)
+
+  // caution
+  &-caution {
+    background: $btn_bg_color_caution;
+    border-color: $btn_bdr_color_caution;
+    color: $btn_txt_color_caution;
+    &:hover, &:focus {
+      background: lighten($btn_bg_color_caution, 10%);
+      color: $btn_txt_color_caution;
+    }// &:hover, &:focus
+  }// &-caution
+
+  // primary
+  &-primary {
+    background: $btn_bg_color_primary;
+    border-color: $btn_bdr_color_primary;
+    color: $btn_txt_color_primary;
+    &:hover, &:focus {
+      background: lighten($btn_bg_color_primary, 10%);
+      color: $btn_txt_color_primary;
+    }// &:hover, &:focus
+  }// &-primary
+
+  // secondary
+  &-secondary {
+    background: $btn_bg_color_secondary;
+    border-color: $btn_bdr_color_secondary;
+    color: $btn_txt_color_secondary;
+    &:hover, &:focus {
+      background: lighten($btn_bg_color_secondary, 10%);
+      color: $btn_txt_color_secondary;
+    }// &:hover, &:focus
+  }// &-secondary
+
+  // tertiary
+  &-tertiary {
+    background: $btn_bg_color_tertiary;
+    border-color: $btn_bdr_color_tertiary;
+    color: $btn_txt_color_tertiary;
+    &:hover, &:focus {
+      background: lighten($btn_bg_color_tertiary, 10%);
+      color: $btn_txt_color_tertiary;
+    }// &:hover, &:focus
+  }// &-secondary
+
+  // 装飾
+  &-rounded {
+    border-radius: 5px;
+  }// &-rounded
+  &-pill {
+    border-radius: 50px;
+  }// &-pill
+  &-block {
+    display: block;
+  }// &-block
+
+}// ..c-btn

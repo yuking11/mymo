@@ -1,0 +1,14 @@
+// -------------------------------------------
+// Function - font-size
+// -------------------------------------------
+
+@function fs( $size, $base: $font_size ) {
+  @return ($size / $base) * 1rem;
+}
+@function get_vw( $size, $viewport:320 ){
+  $rate: 100 / $viewport;
+  @return $rate * $size * 1vw;
+}
+@function fs_vw( $size: $font_size ){
+  @return get_vw( $size );
+}

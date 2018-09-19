@@ -1,0 +1,17 @@
+// -------------------------------------------
+// Media Query
+// -------------------------------------------
+
+@mixin mq($breakpoint: sp, $rule: min, $subtraction: false) {
+  @if map-has-key( $mq-breakpoints, $breakpoint ) {
+    $breakpoint: map_get($mq-breakpoints, $breakpoint);
+    @if $rule == max and $subtraction {
+      $breakpoint: $breakpoint - 1;
+    }
+    @media print, screen and (#{$rule}-width: $breakpoint) {
+      @content;
+    }
+  } @else {
+    @error "$mq-breakpoints に #{$breakpoint} という key は存在しません。";
+  }// @if
+}

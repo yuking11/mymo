@@ -1,0 +1,60 @@
+//=====================================================
+//
+// Title Style
+//
+// =====================================================
+
+// Primary
+// ================================== //
+.c-ttl-primary {
+  @include mq(sp, max,true) {
+
+    font-size: fs(20);
+    line-height: 1.4;
+
+    .ttl_break {
+      display: block;
+    }// .ttl_break
+
+  }// @include mq(sp, max,true)
+  @include mq(pc) {
+
+    font-size: fs(24);
+    line-height: 1.4;
+
+  }// @include mq(pc)
+}// .c-ttl-primary
+
+
+// Secondary
+// ================================== //
+.c-ttl-secondary {
+  @include mq(sp, max,true) {
+
+    margin-bottom: 1rem;
+    padding-bottom: .375rem;
+    border-bottom: 1px dotted $main_color;
+    font-size: fs(18);
+    line-height: 1.4;
+
+  }// @include mq(sp, max,true)
+  @include mq(pc) {
+
+    margin-bottom: 1rem;
+    padding-bottom: .375rem;
+    border-bottom: 1px dotted $main_color;
+    font-size: fs(20);
+    line-height: 1.4;
+
+  }// @include mq(pc)
+}// .c-ttl-secondary
+
+
+// Tertiary
+// ================================== //
+.c-ttl-tertiary {
+  @include mq(sp, max,true) {
+  }// @include mq(sp, max,true)
+  @include mq(pc) {
+  }// @include mq(pc)
+}// .c-ttl-tertiary

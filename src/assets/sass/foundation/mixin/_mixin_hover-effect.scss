@@ -1,0 +1,92 @@
+// -------------------------------------------
+// hover effect
+// -------------------------------------------
+
+// scale
+@mixin hover_scale($size: 1.2, $time: .25s, $prop: all, $easing: ease-out) {
+  display: block;
+  text-decoration: none;
+  transition: $prop $time $easing;
+  &:hover,
+  .is-hover {
+    transform: scale($size);
+  }// &:hover, .is-hover
+}
+
+
+// border
+@mixin hover_border(
+    $color: $font_color,
+    $time: .25s,
+    $bottom: -1px,
+    $prop: all,
+    $easing: ease-out,
+    $direction: true
+  ) {
+  position: relative;
+  text-decoration: none;
+  &::after {
+    content: "";
+    position: absolute;
+    @if $direction {
+      bottom: 4px;
+      opacity: 0;
+    } @else {
+      bottom: $bottom;
+      opacity: 1;
+    }
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    border-bottom: 1px solid $color;
+    transition: $prop $time $easing;
+  }// &::after
+  &:hover,
+  .is-hover {
+    &::after {
+      @if $direction {
+        bottom: $bottom;
+        opacity: 1;
+      } @else {
+        bottom: 4px;
+        opacity: 0;
+      }
+    }// &::after
+  }// &:hover, .is-hover
+}
+
+
+// underline
+@mixin hover_underline(
+    $color: $font_color,
+    $time: .25s,
+    $height: 2px,
+    $prop: transform,
+    $easing: ease-out,
+    $direction: right
+  ) {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  color: $color;
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: $color;
+    width: 100%;
+    height: $height;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: $prop $time $easing;
+  }// &::after
+  &:hover,
+  .is-hover {
+    &::after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }// &::after
+  }// &:hover, .is-hover
+}
+

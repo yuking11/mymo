@@ -1,0 +1,61 @@
+//=====================================================
+//
+// page top btn Style
+//
+// =====================================================
+
+// common
+// ================================== //
+.p-pagetop {
+
+  position: fixed;
+  right: 20px;
+  bottom: -100px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(#000, .65);
+  border: 1px solid #000;
+  border-radius: 50%;
+  color: #FFF;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  transition: all .35s;
+  &:hover,
+  &.is-hover {
+    background-color: rgba(#333, .65);
+    color: #FFF;
+    transform: scale(1.1);
+  }// &:hover, &.is-hover
+
+  &.is-active {
+    bottom: 20px;
+  }// &.is-active
+
+  @include mq(sp, max, true) {
+
+    width: 50px;
+    height: 50px;
+    font-size: fs(12);
+    line-height: 1.2;
+
+  }// @include mq(sp, max, true)
+  @include mq(tab) {
+
+    width: 60px;
+    height: 60px;
+    font-size: fs(16);
+    line-height: 1.4;
+
+  }// @include mq(tab)
+  @include mq(pc) {
+
+    width: 70px;
+    height: 70px;
+
+  }// @include mq(pc)
+  @include mq(wide) {
+  }// @include mq(wide)
+}// .p-pagetop

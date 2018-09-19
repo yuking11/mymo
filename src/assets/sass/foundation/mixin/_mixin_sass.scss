@@ -1,0 +1,11 @@
+// -------------------------------------------
+// sass
+// -------------------------------------------
+
+@mixin replace($origin, $elem){
+  @at-root {
+    #{selector-replace(&, $origin, $elem)} {
+      @content;
+    }
+  }// @at-root
+}

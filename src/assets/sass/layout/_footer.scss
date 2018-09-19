@@ -1,0 +1,49 @@
+// =====================================================
+//
+// Footer Style
+//
+// =====================================================
+
+// footer
+// ================================== //
+.l-footer {
+
+  background-color: #FFF;
+  border-top: 1px solid rgba(#000, .35);
+
+  &-fixed {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 500;
+    width: 100%;
+  }// &-fixed
+
+  .l-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding-right: $ct_gutter;
+    padding-left: $ct_gutter;
+  }// .l-inner
+
+  @include mq(sp, max, true) {
+
+    height: $footer_height_sp;
+
+    .copy {
+      font-size: fs(12);
+    }// .copy
+
+  }// @include mq(sp, max, true)
+  @include mq(pc) {
+
+    height: $footer_height_pc;
+
+    .copy {
+      font-size: fs(14);
+    }// .copy
+
+  }// @include mq(pc)
+}// .l-footer

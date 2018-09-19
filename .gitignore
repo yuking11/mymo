@@ -1,0 +1,58 @@
+### OSX ###
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+
+# Sublime
+sftp-config.json
+*.sublime-project
+*.sublime-workspace
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+### Linux ###
+.*
+!.gitignore
+!.htaccess
+!.htpasswd
+!.editorconfig
+*~
+
+### Ruby ###
+*.gem
+*.rbc
+.bundle
+.config
+coverage
+InstalledFiles
+lib/bundler/man
+pkg
+rdoc
+spec/reports
+test/tmp
+test/version_tmp
+tmp
+
+# YARD artifacts
+.yardoc
+_yardocp
+doc/
+
+# node
+node_modules/
+
+# phpenv
+.php-version
+
+# ndenv
+.node-version
+
+# sass
+_sass-cache/
+sass-cache/

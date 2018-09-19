@@ -1,0 +1,99 @@
+// =====================================================
+//
+// TOPページ Style
+//
+// =====================================================
+
+// 共通
+// ================================== //
+.entrance {
+
+  .entrance_signup {
+    .c-ttl-secondary {
+      border-bottom-color: $caution_color;
+    }// .c-ttl-secondary
+    .p-form_input_wrap {
+      .p-form_input-border {
+        background-color: $caution_color;
+      }// .p-form_input-border
+      .p-form_input {
+        &:hover {
+          background: rgba($caution_color,.025);
+        }// &:hover
+        &:focus {
+          + .p-form_input-label {
+            color: $caution_color;
+          }// + .p-form_input-label
+        }// &:focus
+      }// .p-form_input
+    }// .p-form_input_wrap
+  }// .entrance_signup
+
+
+  .c-ttl-secondary {
+    text-align: center;
+  }// .c-ttl-secondary
+
+  .c-btn {
+    display: block;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+  }// .c-btn
+
+  @include mq(sp, max, true) {
+
+    padding: $ct_gutter * 2;
+
+    .entrance_item {
+      + .entrance_item {
+        margin-top: $ct_gutter * 2;
+      }// + .entrance_item
+      p {
+        margin: .5em 0;
+      }// p
+    }// .entrance_item
+
+    .entrance_logo {
+      text-align: center;
+      .logo_img {
+        width: percentage( 350 / 750 );
+      }// .logo_img
+      .c-ttl-primary {
+        margin-top: 15px;
+        margin-bottom: 0;
+      }// .c-ttl-primary
+    }// .entrance_logo
+
+  }// @include mq(sp, max, true)
+  @include mq(pc) {
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+
+    .entrance_item {
+      display: flex;
+      flex-direction: column;
+      width: 40%;
+      max-width: 300px;
+      margin: 10px ($ct_gutter * 1.25);
+      p {
+        margin: .5em 0;
+      }// p
+    }// .entrance_item
+
+    .entrance_logo {
+      width: 100%;
+      max-width: 100%;
+      margin: 4% auto 2.5%;
+      text-align: center;
+      .c-ttl-primary {
+        margin-top: 15px;
+        margin-bottom: 0;
+      }// .c-ttl-primary
+    }// .entrance_logo
+
+  }// @include mq(pc)
+}// .entrance

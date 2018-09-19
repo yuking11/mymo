@@ -1,0 +1,27 @@
+/* ===========================================
+ Icon Font
+=========================================== */
+@font-face {
+  font-family: "icon";
+  src: url( "../fonts/icon.eot?c=1521020376734" );
+  src: url( "../fonts/icon.eot?#iefix?c=1521020376734" ) format( "eot" ),
+       url( "../fonts/icon.woff?c=1521020376734" ) format( "woff" ),
+       url( "../fonts/icon.ttf?c=1521020376734" ) format( "truetype" ),
+       url( "../fonts/icon.svg#icon?c=1521020376734" ) format( "svg" );
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  font-family: "icon";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  speak: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-check:before { content: "\F001" }

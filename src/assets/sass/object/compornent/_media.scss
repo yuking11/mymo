@@ -1,0 +1,64 @@
+//=====================================================
+//
+// media Style
+// - rwd iframe
+// - media
+//
+// =====================================================
+
+// iframe レスポンシブ対応
+// ================================== //
+.c-framewrap {
+  @include rwd-iframe();
+}// .c-framewrap
+
+
+// media
+// ================================== //
+// 画像：上 コンテンツ：下
+.c-media {
+  @include mq(sp, max, true) {
+  }// @include mq(sp, max, true)
+  @include mq(tab) {
+  }// @include mq(tab)
+  @include mq(pc) {
+  }// @include mq(pc)
+  @include mq(wide) {
+  }// @include mq(wide)
+}// .c-media
+
+// 画像：下 コンテンツ：上
+.c-media-reverse {
+  @include mq(sp, max, true) {
+  }// @include mq(sp, max, true)
+  @include mq(tab) {
+  }// @include mq(tab)
+  @include mq(pc) {
+  }// @include mq(pc)
+  @include mq(wide) {
+  }// @include mq(wide)
+}// .c-media-reverse
+
+// 画像：左 コンテンツ：右
+.c-media-left {
+  @include mq(sp, max, true) {
+  }// @include mq(sp, max, true)
+  @include mq(tab) {
+  }// @include mq(tab)
+  @include mq(pc) {
+  }// @include mq(pc)
+  @include mq(wide) {
+  }// @include mq(wide)
+}// .c-media-left
+
+// 画像：左 コンテンツ：右
+.c-media-right {
+  @include mq(sp, max, true) {
+  }// @include mq(sp, max, true)
+  @include mq(tab) {
+  }// @include mq(tab)
+  @include mq(pc) {
+  }// @include mq(pc)
+  @include mq(wide) {
+  }// @include mq(wide)
+}// .c-media-right

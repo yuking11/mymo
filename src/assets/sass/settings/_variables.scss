@@ -1,0 +1,67 @@
+// =====================================================
+//
+// VARIABLES
+//
+// =====================================================
+
+// Site config
+// ================================== //
+
+// Browser support
+$support_regacy_opera: false;
+
+// iOS style
+$iOS_form_style_reset: false;
+
+// Use sprite
+$use_sprite: false;
+$use_sprite_retina: false;
+
+// Use utility css
+$use_css_utility: true;
+
+
+// style config
+// ================================== //
+
+// columns
+$columns: 12;
+
+// Media Query
+$mq-breakpoints: (
+  'sp'   : 700px,
+  'tab'  : 700px,
+  'pc'   : 700px,
+  'wide' : 1280px,
+);
+
+// Assign Site Width
+$site_width: 1200px;
+$ct_gutter: 1rem;
+$ct_gutter_half: $ct_gutter / 2;
+
+// element margin
+$base_mg: $ct_gutter;
+
+// element padding
+$base_pd: $ct_gutter;
+
+// header size
+$header_height_sp: 48px;
+$header_height_pc: 70px;
+
+// footer size
+$footer_height_sp: 36px;
+$footer_height_pc: 40px;
+
+
+// Font
+// ================================== //
+
+// Base font-size
+$font_size: 16;
+// Base line-height
+$line_height: 1.6;
+
+// Base font-family
+$font_family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Noto Sans Japanese", "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial, Meiryo, sans-serif;

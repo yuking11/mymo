@@ -1,0 +1,108 @@
+/* =====================================================
+
+DEFAULT STYLES
+
+===================================================== */
+
+// Default Styles
+// ================================== //
+
+// html
+html {
+  // overflow-y: scroll;
+  font-size: 100%;
+  text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  // @include box;// ress.scss
+}
+
+// ress.scss
+// *,
+// *:before,
+// *:after {
+//   @include box(inherit);
+// }
+
+// body
+body {
+  background: $body_bg_value;
+  color: $font_color;
+  font-family: $font_family;
+  line-height: $line_height;
+  word-wrap: break-all;
+  word-break: break-all;
+}
+
+// link
+a {
+  color: $link_color_primary;
+  &:hover {
+    color: $link_color_hover;
+    text-decoration: none;
+  }
+}
+
+a, button, input[type="button"], input[type="reset"], input[type="submit"] {
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  cursor: pointer;
+}
+
+button, input[type="button"], input[type="reset"], input[type="submit"] {
+  -webkit-appearance: button;
+}
+
+// list
+ul, ol {
+  list-style: none;
+}
+
+// img
+img {
+  max-width: 100%;
+  vertical-align: top;
+}
+
+// form
+input[type="text"], input[type="email"],
+input[type="number"], input[type="tel"],
+input[type="password"], textarea {
+  padding: 6px;
+  border: solid 1px $ui_input_bdr_color;
+  border-radius: 3px;
+  color: $ui_input_font_color;
+  box-shadow: none;
+  @include mq(sp, max, true) {
+    font-size: fs(16);
+  }// @include mq(sp, max, true)
+  @include mq(pc) {
+    font-size: fs(14);
+  }// @include mq(pc)
+}
+input[type="radio"],
+input[type="checkbox"] {
+  margin: 1px 3px 0 0;
+  margin-top: 0\9;
+}// input[type="radio"], input[type="checkbox"]
+label {
+  cursor: pointer;
+}// label
+
+// code
+pre {
+  clear: both;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+  background-color: #EDEAE4;
+  max-height: 500px;
+  margin: $ct_gutter auto;
+  padding: $ct_gutter_half;
+  border: 1px solid #CFCCC6;
+  color: #333;
+}
+code {
+  -webkit-overflow-scrolling: touch;
+  background-color: #EDEAE4;
+  padding: 0 $ct_gutter_half;
+  color: #333;
+}

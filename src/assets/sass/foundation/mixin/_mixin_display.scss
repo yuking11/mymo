@@ -1,0 +1,17 @@
+// -------------------------------------------
+// display
+// -------------------------------------------
+
+// clearfix
+// ================================== //
+@mixin cf {
+  &:after {
+    @if $support_regacy_opera {
+      content: " ";
+    } @else {
+      content: "";
+    }// @iif
+    display: block;
+    clear: both;
+  }// &:after
+}

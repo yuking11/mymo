@@ -1,0 +1,43 @@
+// -------------------------------------------
+// layout
+// -------------------------------------------
+
+// 横軸中央配置
+// ================================== //
+@mixin l-center($width: $site_width, $max: true, $block: false) {
+  @if $block {
+    display: block;
+  }
+  @if $max {
+    max-width: $width;
+  } @else {
+    width: $width;
+  }
+  margin-right: auto;
+  margin-left: auto;
+}
+
+// 縦軸中央配置
+// ================================== //
+@mixin l-vertical {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+// 縦横軸中央配置
+// ================================== //
+@mixin l-centering($horizontal: true, $vertical: true) {
+  position: absolute;
+  @if $horizontal and $vertical {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  } @else if $horizontal {
+    left: 50%;
+    transform: translate(-50%, 0);
+  } @else if $vertical {
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+}

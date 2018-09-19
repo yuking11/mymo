@@ -1,0 +1,27 @@
+// =====================================================
+//
+// side Style
+//
+// =====================================================
+
+// aside
+// ================================== //
+.l-aside {
+
+  background-color: #BFF;
+
+  @include mq(sp, max, true) {
+
+    flex-basis: 100%;
+
+  }// @include mq(sp, max, true)
+  @include mq(tab) {
+
+    flex: 1;
+
+  }// @include mq(tab)
+  @include mq(pc) {
+  }// @include mq(pc)
+  @include mq(wide) {
+  }// @include mq(wide)
+}// .l-aside

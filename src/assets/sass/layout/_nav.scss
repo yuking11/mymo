@@ -1,0 +1,244 @@
+// =====================================================
+//
+// nav Style
+//
+// =====================================================
+
+// Gnavi
+// ================================== //
+.l-nav {
+
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 5000;
+
+  @include mq(sp, max, true) {
+  }// @include mq(sp, max, true)
+  @include mq(pc) {
+  }// @include mq(pc)
+}// .l-nav
+
+// nav toggle
+// ================================== //
+// コントローラー
+#gnav_ctrl {
+
+  display: none;
+
+  &:checked {
+    ~ .gnav_btn {
+      &::before {
+        transform: rotate(45deg);
+      }// &::before
+      &::after {
+        transform: rotate(-45deg);
+      }// &::after
+      .gnav_btn_inner {
+        opacity: 0;
+      }// .gnav_btn_inner
+    }// ~ .gnav_btn
+    ~ .gnav {
+      right: 0;
+      transition-delay: .2s;
+    }// ~ .gnav
+    ~ .gnav_bg {
+      right: 0;
+      transition-delay: 0;
+    }// ~ .gnav_bg
+  }// &:checked
+
+  @include mq(sp, max, true) {
+  }// @include mq(sp, max, true)
+  @include mq(pc) {
+  }// @include mq(pc)
+}// #gnav_ctrl
+
+// button
+.gnav_btn {
+
+  position: fixed;
+  z-index: 1600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $main_color;
+  box-shadow: 0px 0px 2px 1px rgba(#000, .2);
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 0;
+    margin: auto;
+    border-top: 2px solid #FFF;
+    transition: all .35s ease-out;
+  }// &::before,&::after
+
+  .gnav_btn_inner {
+    border-top: 2px solid #FFF;
+    border-bottom: 2px solid #FFF;
+    transition: all .35s ease-out;
+  }// .gnav_btn_inner
+
+  @include mq(sp, max, true) {
+
+    top: 7px;
+    right: 12px;
+    width: 34px;
+    height: 34px;
+    border-radius: 3px;
+
+    &::before,
+    &::after {
+      width: 20px;
+    }// &::before,&::after
+
+    .gnav_btn_inner {
+      width: 20px;
+      height: 16px;
+    }// .gnav_btn_inner
+
+  }// @include mq(sp, max, true)
+  @include mq(pc) {
+
+    top: 16px;
+    right: 16px;
+    width: 38px;
+    height: 38px;
+    border-radius: 3px;
+
+    &::before,
+    &::after {
+      width: 24px;
+    }// &::before,&::after
+
+    .gnav_btn_inner {
+      width: 24px;
+      height: 18px;
+    }// .gnav_btn_inner
+
+  }// @include mq(pc)
+}// .gnav_btn
+
+// bg
+.gnav_bg {
+
+  position: absolute;
+  top: -20px;
+  right: -150vw;
+  z-index: 900;
+  display: block;
+  background-color: rgba(#000, .65);
+  width: 150vw;
+  height: 120vh;
+  cursor: pointer;
+  transition: all .5s;
+
+  @include mq(sp, max, true) {
+  }// @include mq(sp, max, true)
+  @include mq(pc) {
+  }// @include mq(pc)
+}// .gnav_bg
+
+
+// gnav
+// ================================== //
+.gnav {
+
+  position: absolute;
+  top: -20px;
+  height: 100vh;
+  padding: 20px 0 0;
+  transition-delay: 0;
+  background-color: #FFF;
+  z-index: 1000;
+  transition: all .35s;
+
+  .gnav_logo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 20px;
+  }// .gnav_logo
+
+  .gnav_ttl {
+    background-color: $main_color;
+    color: #FFF;
+    font-weight: bold;
+    line-height: 1;
+  }// .gnav_ttl
+
+  .gnav_list {
+    border-top: 1px solid #CCC;
+    .gnav_item {
+      border-bottom: 1px solid #CCC;
+    }// .gnav_item
+    .gnav_link {
+      display: block;
+      color: $font_color;
+      text-decoration: none;
+      transition: all .35s;
+      cursor: pointer;
+      &:hover,
+      &.is-hover {
+        background-color: #FFE;
+      }// &:hover, &.is-hover
+    }// .gnav_link
+  }// .gnav_list
+
+  @include mq(sp, max, true) {
+
+    right: -80vw;
+    width: 80vw;
+
+    .gnav_name {
+      display: flex;
+      align-items: center;
+      height: 34px + 7 * 2;
+      width: 82%;
+      padding-left: $ct_gutter;
+    }// .gnav_name
+
+    .gnav_ttl {
+      padding: 8px 20px;
+      font-size: fs(18);
+    }// .gnav_ttl
+
+    .gnav_list {
+      .gnav_link {
+        padding: 14px 20px;
+        font-size: fs(14);
+      }// .gnav_link
+    }// .gnav_list
+
+  }// @include mq(sp, max, true)
+  @include mq(pc) {
+
+    right: -50vw;
+    width: 50vw;
+
+    .gnav_name {
+      display: flex;
+      align-items: center;
+      height: 38px + 16 * 2;
+      width: 82%;
+      padding-left: $ct_gutter;
+    }// .gnav_name
+
+    .gnav_ttl {
+      padding: 10px 20px;
+      font-size: fs(18);
+    }// .gnav_ttl
+
+    .gnav_list {
+      .gnav_link {
+        padding: 10px 20px;
+      }// .gnav_link
+    }// .gnav_list
+
+  }// @include mq(pc)
+}// .gnav

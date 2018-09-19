@@ -1,0 +1,28 @@
+@if $use_css_utility {
+// -------------------------------------------
+// Utility - layout
+// -------------------------------------------
+
+  .u-fl_l { float: left; }
+  .u-fl_r { float: right; }
+  .u-fl {
+    @include cf;
+    .u-fl_item { float: left; }
+    .u-fl_item-rv { float: right; }
+  }// .fl_box
+  .u-clear, .u-clear::after { clear: both; }
+  .u-clear_l, .u-clear_l::after { clear: left; }
+  .u-clear_r, .u-clear_r::after { clear: right; }
+  .cf {
+    &::after {
+      @if $support_regacy_opera {
+        content: " ";
+      } @else {
+        content: "";
+      }// @iif
+      display: block;
+      clear: both;
+    }// &::after
+  }// .cf
+
+}

@@ -1,0 +1,76 @@
+//=====================================================
+//
+// grid Style
+//
+// =====================================================
+
+.row {
+
+  width: calc(100% + #{$ct_gutter});
+  display: flex;
+  align-items: stretch;
+  // justify-content: space-between;
+  flex-wrap: wrap;
+  margin-right: -($ct_gutter_half);
+  margin-left: -($ct_gutter_half);
+
+  .col {
+    flex-grow: 1;
+    margin: $ct_gutter_half;
+    @for $i from 1 through $columns {
+      &-#{$i} {
+        flex-basis: calc((100% / #{$columns}) * #{$i} - #{$ct_gutter_half} * 2);
+        max-width: calc((100% / #{$columns}) * #{$i} - #{$ct_gutter_half} * 2);
+        margin: $ct_gutter_half;
+      }// &-#{$i}
+    }// @for
+    &-debug {
+      background-color: #CCC;
+    }// &-debug
+  }// .col
+
+  @include mq(sp, max, true) {
+
+    @for $i from 1 through $columns {
+      .col-sm-#{$i} {
+        flex-basis: calc((100% / #{$columns}) * #{$i} - #{$ct_gutter_half} * 2);
+        max-width: calc((100% / #{$columns}) * #{$i} - #{$ct_gutter_half} * 2);
+        margin: $ct_gutter_half;
+      }// .col-sm-#{$i}
+    }// @for
+
+  }// @include mq(sp, max, true)
+  @include mq(tab) {
+
+    @for $i from 1 through $columns {
+      .col-md-#{$i} {
+        flex-basis: calc((100% / #{$columns}) * #{$i} - #{$ct_gutter_half} * 2);
+        max-width: calc((100% / #{$columns}) * #{$i} - #{$ct_gutter_half} * 2);
+        margin: $ct_gutter_half;
+      }// .col-md-#{$i}
+    }// @for
+
+  }// @include mq(tab)
+  @include mq(pc) {
+
+    @for $i from 1 through $columns {
+      .col-lg-#{$i} {
+        flex-basis: calc((100% / #{$columns}) * #{$i} - #{$ct_gutter_half} * 2);
+        max-width: calc((100% / #{$columns}) * #{$i} - #{$ct_gutter_half} * 2);
+        margin: $ct_gutter_half;
+      }// .col-lg-#{$i}
+    }// @for
+
+  }// @include mq(pc)
+  @include mq(wide) {
+
+    @for $i from 1 through $columns {
+      .col-xl-#{$i} {
+        flex-basis: calc((100% / #{$columns}) * #{$i} - #{$ct_gutter_half} * 2);
+        max-width: calc((100% / #{$columns}) * #{$i} - #{$ct_gutter_half} * 2);
+        margin: $ct_gutter_half;
+      }// .col-xl-#{$i}
+    }// @for
+
+  }// @include mq(wide)
+}// .row

@@ -1,0 +1,72 @@
+// =====================================================
+//
+// container Style
+//
+// =====================================================
+
+// body
+// ================================== //
+.l-body {
+
+  font-family: 'M PLUS 1p', "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Meiryo, sans-serif;
+
+  .l-body_inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }// .l-body_inner
+
+  @include mq(sp, max, true) {
+  }// @include mq(sp, max, true)
+  @include mq(pc) {
+  }// @include mq(pc)
+}// .l-body
+
+// container
+// ================================== //
+.l-container {
+  @include mq(sp, max, true) {
+
+    margin-top: $header_height_sp;
+    margin-bottom: $footer_height_sp;
+
+    &-login {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 100;
+      width: 100%;
+    }// &-login
+
+  }// @include mq(sp, max, true)
+  @include mq(pc) {
+
+    margin-top: $header_height_pc;
+    margin-bottom: $footer_height_pc;
+
+    &-login {
+      height: calc( 100vh - #{$header_height_pc}  - #{$footer_height_pc} );
+    }// &-login
+
+  }// @include mq(pc)
+}// .l-container
+
+
+// wrapper
+// ================================== //
+.l-wrap {
+  @include mq(sp, max, true) {
+  }// @include mq(sp, max, true)
+  @include mq(pc) {
+  }// @include mq(pc)
+}// .l-wrap
+
+
+// inner
+// ================================== //
+.l-inner {
+  @include mq(sp, max, true) {
+  }// @include mq(sp, max, true)
+  @include mq(pc) {
+  }// @include mq(pc)
+}// .l-inner

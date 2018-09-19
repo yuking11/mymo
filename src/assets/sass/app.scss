@@ -1,0 +1,160 @@
+@charset "utf-8";
+/*!
+* (c) 2016 yuking11.net
+* @project : yuking11.net
+* @guideline : http://guideline.yuking11.net
+* @version : 2
+* @author: @Yuking11
+*/
+
+// ================================================
+// Foundation
+// ================================================
+
+// -------------------------------------------
+// サイト設定
+// -------------------------------------------
+
+// 変数一覧
+@import "settings/variables";
+// カラー関連の設定
+@import "settings/colors";
+
+// -------------------------------------------
+// function
+// -------------------------------------------
+
+@import "foundation/function/fontsize";
+
+// -------------------------------------------
+// Mix-in
+// -------------------------------------------
+
+@import "foundation/mixin/partial";
+
+// -------------------------------------------
+// デフォルトCSS
+// -------------------------------------------
+
+@import "foundation/base/ress";// ress a morden CSS reset
+// @import "foundation/base/reset";// HTML5 doctor reset css
+// @import "foundation/base/normalize";// Normalize.css
+@import "foundation/base/reset_origin";// original reset css
+@import "foundation/base/default";
+
+// -------------------------------------------
+// プラグイン等
+// -------------------------------------------
+
+@import "vendor/override";
+
+
+// ================================================
+// Layout
+// ================================================
+
+@import "layout/container";
+@import "layout/header";
+@import "layout/nav";
+@import "layout/main";
+@import "layout/side";
+@import "layout/footer";
+
+
+// ================================================
+// Object
+// ================================================
+
+// -------------------------------------------
+// modules
+// -------------------------------------------
+
+// @import "object/modules/iconfont";// iconfont
+// @import "object/modules/sprites";// Sprite
+// @if $use_sprite {
+//   @include sprites($spritesheet-sprites);
+// } @elseif $use_sprite_retina {
+//   @include retina-sprites($retina-groups);
+// }
+
+// -------------------------------------------
+// Compornent
+// -------------------------------------------
+
+@import "object/compornent/grid";// グリッド
+@import "object/compornent/media";// メディア
+@import "object/compornent/title";// タイトル
+@import "object/compornent/button";// ボタン
+@import "object/compornent/table";// テーブル
+@import "object/compornent/form";// フォーム
+@import "object/compornent/ui";// UI
+
+// -------------------------------------------
+// Support
+// -------------------------------------------
+
+@import "object/support/state";// state
+
+// -------------------------------------------
+// Project
+// -------------------------------------------
+
+@import "object/project/breadcrumb";// パンくず
+@import "object/project/pagetop";// page top btn
+
+// -------------------------------------------
+// Page
+// -------------------------------------------
+
+@import "object/page/base";// ページ共通
+// @import "object/page/codeguide";// codeguide用
+@import "object/page/index";
+@import "object/page/editor";
+@import "object/page/update_password";
+@import "object/page/reset_password";
+
+// -------------------------------------------
+// Utility
+// -------------------------------------------
+
+@import "object/utility/align";// align
+@import "object/utility/layout";// レイアウト
+@import "object/utility/text";// テキスト
+@import "object/utility/margin";// マージン・パディング
+
+
+/* =====================================================
+
+set Print
+
+===================================================== */
+@media print {
+  section {
+    display: block;
+    // page-break-before: auto;
+  }
+  pre code {
+    page-break-after: auto;
+  }
+  @page {
+    margin-top: .4cm;
+    margin: .5cm;
+  }
+  p a, code, pre {
+    word-wrap: break-word;
+  }
+  pre a[href]:after {
+    content: "";
+  }
+  pre abbr[title]:after {
+    content: "";
+  }
+  pre.ir a:after,
+  pre a[href^="javascript:"]:after,
+  pre a[href^="#"]:after {
+    content: "";
+  }
+  .no_print {
+    display:none;
+  }
+}

@@ -1,0 +1,71 @@
+// =====================================================
+//
+// header Style
+//
+// =====================================================
+
+// header
+// ================================== //
+.l-header {
+
+  background-color: #FFF;
+  box-shadow: 0 0 4px rgba(#000, .35);
+
+  &-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 500;
+    width: 100%;
+  }// &-fixed
+
+  .l-inner {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding-right: $ct_gutter;
+    padding-left: $ct_gutter;
+  }// .l-inner
+
+  .logo {
+    .logo_img {
+      height: 100%;
+    }// .logo_img
+  }// .logo
+
+  @include mq(sp, max, true) {
+
+    height: $header_height_sp;
+
+    .l-inner {
+    }// .l-inner
+
+    .logo {
+      height: 28px;
+    }// .logo
+
+    .user_name {
+      display: none;
+    }// .user_name
+
+  }// @include mq(sp, max, true)
+  @include mq(pc) {
+
+    height: $header_height_pc;
+
+    .l-inner {
+      display: flex;
+      align-items: center;
+      height: 100%;
+    }// .l-inner
+
+    .logo {
+      height: 35px;
+    }// .logo
+
+    .user_name {
+      margin: 0 (38px + 16) 0 auto;
+    }// .user_name
+
+  }// @include mq(pc)
+}// .l-header

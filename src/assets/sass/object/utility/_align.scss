@@ -1,0 +1,13 @@
+@if $use_css_utility {
+// -------------------------------------------
+// Utility - align
+// -------------------------------------------
+
+  .u-tal { text-align: left; }
+  .u-tar { text-align: right; }
+  .u-tac { text-align: center; }
+  .u-vat { vertical-align: top; }
+  .u-vam { vertical-align: middle; }
+  .u-vab { vertical-align: bottom; }
+
+}

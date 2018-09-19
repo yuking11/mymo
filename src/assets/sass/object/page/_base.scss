@@ -1,0 +1,36 @@
+//=====================================================
+//
+// Page Common Style
+//
+// =====================================================
+
+// wrap
+// ================================== //
+.single {
+
+  p {
+    font-size: (14);
+    line-height: 1.4;
+  }// p
+
+  @include mq(sp, max, true) {
+
+    padding: $ct_gutter * 2;
+
+    p {
+      margin: .75rem 0;
+    }// p
+
+  }// @include mq(sp, max, true)
+  @include mq(pc) {
+
+    width: 50%;
+    max-width: 400px;
+    margin: 4% auto 2.5%;
+
+    p {
+      margin: 1rem 0;
+    }// p
+
+  }// @include mq(pc)
+}// .single

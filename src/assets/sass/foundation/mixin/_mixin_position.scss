@@ -1,0 +1,42 @@
+// -------------------------------------------
+// position
+// -------------------------------------------
+
+@mixin poa( $top: 0, $right: 0, $bottom: 0, $left: 0 ) {
+  position: absolute;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+@mixin poa_tr( $top: 0, $right: 0 ) {
+  position: absolute;
+  top: $top;
+  right: $right;
+}
+@mixin poa_tl( $top: 0, $left: 0 ) {
+  position: absolute;
+  top: $top;
+  left: $left;
+}
+@mixin poa_br( $bottom: 0, $right: 0 ) {
+  position: absolute;
+  right: $right;
+  bottom: $bottom;
+}
+@mixin poa_bl( $bottom: 0, $left: 0 ) {
+  position: absolute;
+  bottom: $bottom;
+  left: $left;
+}
+
+//　center
+// ================================== //
+@mixin poa_mid( $top: 0, $right: 0, $bottom: 0, $left: 0 ) {
+  position: absolute;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+  margin: auto;
+}

@@ -1,0 +1,45 @@
+@if $iOS_form_style_reset {
+// -------------------------------------------
+// reset iOS form style
+// -------------------------------------------
+
+  input[type="submit"],
+  input[type="button"] {
+    appearance: button;
+    border: none;
+    border-radius: 0;
+    box-sizing: border-box;
+    cursor: pointer;
+    &::focus {
+      outline-offset: -2px;
+    }
+  }
+  input[type="submit"]::-webkit-search-decoration,
+  input[type="button"]::-webkit-search-decoration {
+    display: none;
+  }
+
+  select {
+    appearance: none;
+    border: none;
+    outline: none;
+    background: transparent;
+  }
+
+  button,
+  input[type="submit"] {
+    appearance: none;
+    padding: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+  }
+
+  input[type="radio"] {
+    display: none;
+  }
+  input[type="radio"]:checked + label {
+    background: #ff0000;
+  }
+
+}// @if

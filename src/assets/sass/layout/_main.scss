@@ -1,0 +1,28 @@
+// =====================================================
+//
+// main Style
+//
+// =====================================================
+
+// main
+// ================================== //
+.l-main {
+
+  background-color: #FFC;
+
+  @include mq(sp, max, true) {
+
+    flex-basis: 100%;
+
+  }// @include mq(sp, max, true)
+  @include mq(tab) {
+
+    flex: 3;
+    margin-right: $ct_gutter * 2;
+
+  }// @include mq(tab)
+  @include mq(pc) {
+  }// @include mq(pc)
+  @include mq(wide) {
+  }// @include mq(wide)
+}// .l-main

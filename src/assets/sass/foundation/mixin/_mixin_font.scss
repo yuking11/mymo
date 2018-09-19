@@ -1,0 +1,23 @@
+// -------------------------------------------
+// font
+// -------------------------------------------
+
+// font-size
+// ================================== //
+@mixin fs_vw( $font_size: 10 ){
+  font-size: $font_size * 1px;
+  font-size: get_vw( $font_size );
+}
+
+// web font
+// ================================== //
+@mixin font-face($family, $path, $weight: normal, $style: normal) {
+  @font-face {
+    font-family: $family;
+    src: url('#{$path}.woff2') format('woff2'),
+         url('#{$path}.woff') format('woff'),
+         url('#{$path}.ttf') format('truetype');
+    font-weight: $weight;
+    font-style: $style;
+  }
+}
