@@ -72,6 +72,7 @@
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: center;
+    padding-bottom: $ct_gutter * 1;
 
     .entrance_item {
       display: flex;
@@ -82,12 +83,18 @@
       p {
         margin: .5em 0;
       }// p
+      .p-form_input_wrap {
+        margin-top: $ct_gutter;
+        + .p-form_input_wrap {
+          margin-top: 0;
+        }// + .p-form_input_wrap
+      }// .p-form_input_wrap
     }// .entrance_item
 
     .entrance_logo {
       width: 100%;
       max-width: 100%;
-      margin: 4% auto 2.5%;
+      margin: 3% auto 2.5%;
       text-align: center;
       .c-ttl-primary {
         margin-top: 15px;

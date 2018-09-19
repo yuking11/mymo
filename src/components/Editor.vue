@@ -2,13 +2,43 @@
   <div id="editor">
     <div class="editor_item editor_item-ctrl">
       <ul class="editor_menu">
-        <li class="menu_item">
-          <button @click="addMemo" class="c-btn c-btn-small c-btn-secondary">新規</button>
+        <li class="menu_item menu_item-add">
+          <button
+            @click="addMemo"
+            class="c-btn c-btn-small c-btn-secondary">新規</button>
         </li><!-- /.menu_item -->
-        <li class="menu_item">
-          <button @click="saveMemo" class="c-btn c-btn-small c-btn-tertiary">保存</button>
+        <li class="menu_item menu_item-save">
+          <button
+            @click="saveMemo"
+            class="c-btn c-btn-small c-btn-tertiary">保存</button>
+        </li><!-- /.menu_item -->
+        <li class="menu_item menu_item-del">
+          <button
+            v-if="memos.length > 1"
+            @click="deleteMemo(select)"
+            class="c-btn c-btn-small c-btn-caution">削除</button>
         </li><!-- /.menu_item -->
       </ul><!-- /.editor_menu -->
+      <div class="ttl_list-sp p-form">
+        <div class="p-form_select_wrap">
+          <label class="p-form_select-label p-form_select-label-wide">
+            <select
+              v-model="select"
+              v-on:change="changeMemo()"
+              name="title"
+              class="p-form_select"
+            >
+              <option
+                v-for="(memo, index) in memos"
+                :key="index"
+                v-bind:value="index"
+              >
+                {{ dispTitle(memo.detail) }}
+              </option>
+            </select><!-- /.p-form_select-label -->
+          </label><!-- /.p-form_select_wrap -->
+        </div><!-- /.p-form_select -->
+      </div><!-- /.ttl_list-sp p-form -->
       <ul class="ttl_list">
         <li
           v-for="(memo, index) in memos"
@@ -48,7 +78,8 @@ export default {
       memos: [{
         detail: initial
       }],
-      selectedIndex: 0
+      selectedIndex: 0,
+      select: 0
     }
   },
   created () {
@@ -71,6 +102,7 @@ export default {
         detail: ''
       })
       this.selectedIndex = this.memos.length - 1
+      this.select = this.memos.length - 1
       // console.log('add')
     },
     saveMemo () {
@@ -88,7 +120,11 @@ export default {
     },
     selectMemo (index) {
       this.selectedIndex = index
+      this.select = index
       // console.log('selected')
+    },
+    changeMemo () {
+      this.selectedIndex = this.select
     },
     deleteMemo (index) {
       const ttl = this.dispTitle(this.memos[index].detail)
@@ -98,6 +134,7 @@ export default {
         this.memos.splice(index, 1)
         if ((index === length && index === selected) || index < selected) {
           this.selectedIndex--
+          this.select--
         }
         // console.log('delete')
       }
