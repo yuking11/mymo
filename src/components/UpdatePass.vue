@@ -1,5 +1,5 @@
 <template>
-  <div id="update_password" class="p-form single">
+  <div id="update_password" class="p-form single single-attn">
     <h1 class="c-ttl-secondary">パスワード変更</h1>
     <p>こちらの設定は、メールアドレス／パスワードでログインしている方のみが対象です。</p>
     <p>現在のパスワード、新しいパスワードを入力し、変更ボタンをクリックしてください。</p>
@@ -23,8 +23,8 @@
       <span class="p-form_input-label">新しいパスワード</span>
       <span class="p-form_input-border"></span>
     </label>
-    <button @click="updatePass()" class="c-btn c-btn-wide c-btn-secondary" >
-      パスワード変更
+    <button @click="updatePass()" class="c-btn c-btn-wide c-btn-caution" >
+      送信する
     </button>
   </div><!-- /#update_password -->
 </template>
@@ -82,7 +82,3 @@ export default {
   }
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
-</style>

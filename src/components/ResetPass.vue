@@ -1,5 +1,5 @@
 <template>
-  <div id="reset_password" class="p-form single">
+  <div id="reset_password" class="p-form single single-attn">
     <h1 class="c-ttl-secondary">パスワードをお忘れの方</h1>
     <p>ご登録されたメールアドレスにパスワード再設定のご案内が送信されます。</p>
     <label for="c_email" class="p-form_input_wrap">
@@ -12,7 +12,9 @@
       <span class="p-form_input-label">ご登録されたメールアドレス</span>
       <span class="p-form_input-border"></span>
     </label>
-    <button @click="ResetPass" class="c-btn c-btn-wide c-btn-caution">送信する</button>
+    <p class="long">
+      <button @click="ResetPass" class="c-btn c-btn-wide c-btn-caution">送信する</button>
+    </p>
     <p>
       <router-link to="/signin">ホームに戻る</router-link>
     </p>
@@ -28,6 +30,17 @@ export default {
     return {
       email: ''
     }
+  },
+  mounted () {
+    firebase.auth().onAuthStateChanged(user => {
+      this.isLoginState = true
+      if (user) {
+        const cUser = firebase.auth().currentUser
+        if (cUser.emailVerified) {
+          this.$router.push('/')
+        }
+      }
+    })
   },
   methods: {
     ResetPass () {
@@ -49,6 +62,3 @@ export default {
   }
 }
 </script>
-
-<style scoped lang="scss">
-</style>

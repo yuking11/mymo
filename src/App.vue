@@ -42,8 +42,16 @@ export default {
       this.isLoginState = true
       // console.log(this.userData)
       if (user) {
-        this.isLogin = true
-        this.userData = user
+        const cUser = firebase.auth().currentUser
+        // console.log(cUser.emailVerified)
+        if (!cUser.emailVerified) {
+          this.isLogin = false
+          this.userData = null
+          // this.$router.push('/email_verified')
+        } else {
+          this.isLogin = true
+          this.userData = user
+        }
       } else {
         this.isLogin = false
         this.userData = null

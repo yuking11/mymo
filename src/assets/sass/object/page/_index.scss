@@ -43,7 +43,7 @@
 
   @include mq(sp, max, true) {
 
-    padding: $ct_gutter * 2;
+    padding: ($ct_gutter * 2) ($ct_gutter * 1.625);
 
     .entrance_item {
       + .entrance_item {

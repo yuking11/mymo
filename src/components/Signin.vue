@@ -2,7 +2,7 @@
   <div class="entrance p-form">
     <div class="entrance_item entrance_logo">
       <p><img src="../assets/img/logo.png" alt="MyMo" class="logo_img"></p>
-      <h1 class="c-ttl-primary"><span class="ttl_break">PC、スマホでいつでもメモ！</span><span class="ttl_break">クラウドメモアプリ</span></h1>
+      <h1 class="c-ttl-primary"><span class="ttl_break">PC、スマホでいつでもメモ！</span><span class="ttl_break">クラウドメモアプリ「MyMo」</span></h1>
     </div><!-- /.entrance_item entrance_logo -->
     <div class="entrance_item entrance_signin">
       <h2 class="c-ttl-secondary">ログイン</h2>
@@ -27,7 +27,13 @@
         <span class="p-form_input-border"></span>
       </label>
       <p>
-        <button @click="signIn" class="c-btn c-btn-secondary">ログイン</button>
+        <button
+          @click="signIn"
+          class="c-btn c-btn-secondary"
+        >
+          <i v-if="isProcessing" class="fa fa-spinner fa-spin"></i>
+          <span v-if="!isProcessing">ログイン</span>
+        </button>
       </p>
       <p>
         <button @click="googleLogin" class="c-btn c-btn-secondary">Googleアカウントでログイン</button>
@@ -59,7 +65,13 @@
         <span class="p-form_input-border"></span>
       </label>
       <p>
-        <button @click="signUp" class="c-btn c-btn-caution">登録</button>
+        <button
+          @click="signUp"
+          class="c-btn c-btn-caution"
+        >
+          <i v-if="isRegistering" class="fa fa-spinner fa-spin"></i>
+          <span v-if="!isRegistering">登録</span>
+        </button>
       </p>
     </div><!-- /.entrance_item entrance_signup -->
   </div>
@@ -75,7 +87,9 @@ export default {
       email: '',
       password: '',
       newemail: '',
-      newpassword: ''
+      newpassword: '',
+      isRegistering: false,
+      isProcessing: false
     }
   },
   mounted () {
@@ -87,24 +101,28 @@ export default {
   },
   methods: {
     signUp () {
-      this.$parent.isLoginState = false
+      if (this.isRegistering) {
+        return
+      }
+      this.isRegistering = true
       const protocol = location.protocol + '//'
       const redirect = {
         url: protocol + window.location.host + '/#/signin'
       }
       firebase.auth().createUserWithEmailAndPassword(this.newemail, this.newpassword)
         .then(user => {
+          this.isRegistering = false
           const cUser = firebase.auth().currentUser
           // Emailの確認もつけておく
           cUser
             .sendEmailVerification(redirect)
             .then(() => {
               alert(cUser.email + 'に登録確認メールを送信しました。')
+              this.signOut()
             })
             .catch(err => {
               alert(err.code, err.message)
             })
-          this.$parent.isLoginState = true
         })
         .catch(err => {
           if (err.code === 'auth/invalid-email') {
@@ -114,7 +132,7 @@ export default {
           } else if (err.code === 'auth/email-already-in-use') {
             alert('入力したメールアドレスは既に登録されています。')
           }
-          this.$parent.isLoginState = true
+          this.isRegistering = false
           // alert(err.code + err.message)
         })
     },
@@ -126,9 +144,20 @@ export default {
       })
     },
     signIn () {
+      if (this.isProcessing) {
+        return
+      }
+      this.isProcessing = true
       firebase.auth().signInWithEmailAndPassword(this.email, this.password)
         .then(user => {
-          this.$router.push('/')
+          this.isProcessing = false
+          const cUser = firebase.auth().currentUser
+          // Emailの確認もつけておく
+          if (!cUser.emailVerified) {
+            this.$router.push('/email_verified')
+          } else {
+            this.$router.push('/')
+          }
         })
         .catch(err => {
           if (err.code === 'auth/invalid-email') {
@@ -138,6 +167,7 @@ export default {
           } else if (err.code === 'auth/user-not-found') {
             alert('登録されていないユーザーです。')
           }
+          this.isProcessing = false
         })
     },
     googleLogin () {

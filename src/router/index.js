@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Editor from '@/components/Editor'
 import Signin from '@/components/Signin'
+import ReSendEmailVerified from '@/components/ReSendEmailVerified'
 import ResetPass from '@/components/ResetPass'
 import UpdatePass from '@/components/UpdatePass'
 import firebase from 'firebase'
@@ -18,6 +19,11 @@ let router = new Router({
       path: '/signin',
       name: 'Signin',
       component: Signin
+    },
+    {
+      path: '/email_verified',
+      name: 'ReSendEmailVerified',
+      component: ReSendEmailVerified
     },
     {
       path: '/reset_pass',
@@ -45,7 +51,8 @@ router.beforeEach((to, from, next) => {
     // このルートはログインされているかどうか認証が必要です。
     // もしされていないならば、ログインページにリダイレクトします。
     firebase.auth().onAuthStateChanged(user => {
-      if (user) {
+      const cUser = firebase.auth().currentUser
+      if (user && cUser.emailVerified) {
         next()
       } else {
         next({

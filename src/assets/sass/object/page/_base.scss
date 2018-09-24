@@ -13,6 +13,27 @@
     line-height: 1.4;
   }// p
 
+  &-attn {
+    .c-ttl-secondary {
+      border-bottom-color: $caution_color;
+    }// .c-ttl-secondary
+    .p-form_input_wrap {
+      .p-form_input-border {
+        background-color: $caution_color;
+      }// .p-form_input-border
+      .p-form_input {
+        &:hover {
+          background: rgba($caution_color,.025);
+        }// &:hover
+        &:focus {
+          + .p-form_input-label {
+            color: $caution_color;
+          }// + .p-form_input-label
+        }// &:focus
+      }// .p-form_input
+    }// .p-form_input_wrap
+  }// &-attn
+
   @include mq(sp, max, true) {
 
     padding: $ct_gutter * 2;
@@ -21,16 +42,24 @@
       margin: .75rem 0;
     }// p
 
+    .long {
+      margin: 1.25rem 0;
+    }// .long
+
   }// @include mq(sp, max, true)
   @include mq(pc) {
 
     width: 50%;
-    max-width: 400px;
+    max-width: 420px;
     margin: 4% auto 2.5%;
 
     p {
       margin: 1rem 0;
     }// p
+
+    .long {
+      margin: 1.5rem 0;
+    }// .long
 
   }// @include mq(pc)
 }// .single

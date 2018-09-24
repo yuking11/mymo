@@ -9,7 +9,7 @@
 .c-ttl-primary {
   @include mq(sp, max,true) {
 
-    font-size: fs(20);
+    font-size: fs(19);
     line-height: 1.4;
 
     .ttl_break {
