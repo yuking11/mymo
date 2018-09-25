@@ -74,6 +74,14 @@
         </button>
       </p>
     </div><!-- /.entrance_item entrance_signup -->
+    <div class="entrance_item entrance_item-usage">
+      <div class="entrance_item_inner">
+        <h2 class="c-ttl-secondary">スマートフォンをご利用の方へ</h2>
+        <p>スマートフォンをご利用の方は、ブラウザからアクセスした後「ホーム画面に追加」をしてください。</p>
+        <p>本アプリは「ホーム画面に追加」をし、アプリとして使用することを前提にUIを最適化しております。</p>
+        <p>ブラウザでご利用の場合、一部不具合が生じる場合がございます。ご了承ください。</p>
+      </div><!-- /.entrance_item_inner -->
+    </div><!-- /.entrance_item entrance_item-usage -->
   </div>
 </template>
 

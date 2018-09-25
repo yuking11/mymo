@@ -1,6 +1,6 @@
 <template>
-  <div id="editor">
-    <div class="editor_item editor_item-ctrl">
+  <div id="editor" :data-mode="mode">
+    <div id="editor_ctrl" class="editor_item editor_item-ctrl">
       <ul class="editor_menu">
         <li class="menu_item menu_item-add">
           <button
@@ -12,33 +12,7 @@
             @click="saveMemo"
             class="c-btn c-btn-small c-btn-tertiary">保存</button>
         </li><!-- /.menu_item -->
-        <li class="menu_item menu_item-del">
-          <button
-            v-if="memos.length > 1"
-            @click="deleteMemo(select)"
-            class="c-btn c-btn-small c-btn-caution">削除</button>
-        </li><!-- /.menu_item -->
       </ul><!-- /.editor_menu -->
-      <div class="ttl_list-sp p-form">
-        <div class="p-form_select_wrap">
-          <label class="p-form_select-label p-form_select-label-wide">
-            <select
-              v-model="select"
-              v-on:change="changeMemo()"
-              name="title"
-              class="p-form_select"
-            >
-              <option
-                v-for="(memo, index) in memos"
-                :key="index"
-                v-bind:value="index"
-              >
-                {{ dispTitle(memo.detail) }}
-              </option>
-            </select><!-- /.p-form_select-label -->
-          </label><!-- /.p-form_select_wrap -->
-        </div><!-- /.p-form_select -->
-      </div><!-- /.ttl_list-sp p-form -->
       <ul class="ttl_list">
         <li
           v-for="(memo, index) in memos"
@@ -58,11 +32,27 @@
         </li><!-- /.ttl_item -->
       </ul><!-- /.ttl_list -->
     </div><!-- /.editor_item editor_item-ctrl -->
-    <textarea
-      v-model="memos[selectedIndex].detail"
-      class="editor_item editor_item-input"
-    >
-    </textarea><!-- /.editor_item editor_item-input -->
+    <div id="editor_input" class="editor_item editor_item-input">
+      <ul class="editor_menu">
+        <li class="menu_item menu_item-add">
+          <button
+            @click="backToList"
+            class="c-btn c-btn-small">一覧へ</button>
+        </li><!-- /.menu_item -->
+        <li class="menu_item menu_item-save">
+          <button
+            @click="saveMemo"
+            class="c-btn c-btn-small c-btn-tertiary">保存</button>
+        </li><!-- /.menu_item -->
+        <li class="menu_item menu_item-del">
+          <button
+            v-if="memos.length > 1"
+            @click="deleteMemo(selectedIndex)"
+            class="c-btn c-btn-small c-btn-caution">削除</button>
+        </li><!-- /.menu_item -->
+      </ul><!-- /.editor_menu -->
+      <textarea v-model="memos[selectedIndex].detail" class="p-form_textarea"></textarea>
+    </div><!-- /#editor_input -->
   </div><!-- /#editor -->
 </template>
 
@@ -79,7 +69,7 @@ export default {
         detail: initial
       }],
       selectedIndex: 0,
-      select: 0
+      mode: 'select'
     }
   },
   created () {
@@ -102,7 +92,6 @@ export default {
         detail: ''
       })
       this.selectedIndex = this.memos.length - 1
-      this.select = this.memos.length - 1
       // console.log('add')
     },
     saveMemo () {
@@ -120,11 +109,11 @@ export default {
     },
     selectMemo (index) {
       this.selectedIndex = index
-      this.select = index
       // console.log('selected')
+      this.mode = 'edit'
     },
-    changeMemo () {
-      this.selectedIndex = this.select
+    backToList () {
+      this.mode = 'select'
     },
     deleteMemo (index) {
       const ttl = this.dispTitle(this.memos[index].detail)
@@ -134,7 +123,6 @@ export default {
         this.memos.splice(index, 1)
         if ((index === length && index === selected) || index < selected) {
           this.selectedIndex--
-          this.select--
         }
         // console.log('delete')
       }

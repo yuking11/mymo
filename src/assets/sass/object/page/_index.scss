@@ -49,6 +49,9 @@
       + .entrance_item {
         margin-top: $ct_gutter * 2;
       }// + .entrance_item
+      + .entrance_item-usage {
+        margin-top: $ct_gutter * 3;
+      }// + .entrance_item-usage
       p {
         margin: .5em 0;
       }// p
@@ -105,6 +108,17 @@
         margin-bottom: 0;
       }// .c-ttl-primary
     }// .entrance_logo
+
+    .entrance_item-usage {
+      width: 100%;
+      max-width: inherit;
+      margin: 4% auto 2%;
+      .entrance_item_inner {
+        width: calc(40% * 2 + (#{$ct_gutter} * 1.25) * 2);
+        max-width: calc(300px * 2 + (#{$ct_gutter} * 1.25) * 2);
+        margin: auto;
+      }// .entrance_item_inner
+    }// .entrance_item-usage
 
   }// @include mq(pc)
 }// .entrance
