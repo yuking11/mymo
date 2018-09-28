@@ -13,7 +13,15 @@
             class="c-btn c-btn-small c-btn-tertiary">保存</button>
         </li><!-- /.menu_item -->
       </ul><!-- /.editor_menu -->
-      <ul class="ttl_list">
+      <div
+        v-if="isLoading"
+        class="ttl_list is-loading"
+      >
+        <div class="loader">Loading...</div>
+      </div><!-- /.ttl_list is-loading -->
+      <ul
+        v-if="!isLoading"
+        class="ttl_list">
         <li
           v-for="(memo, index) in memos"
           :data-selected="index == selectedIndex"
@@ -69,16 +77,18 @@ export default {
         detail: initial
       }],
       selectedIndex: 0,
-      mode: 'select'
+      mode: 'select',
+      isLoading: true
     }
   },
-  created () {
+  mounted () {
     firebase
       .database()
       .ref('memos/' + this.user.uid)
       .once('value')
       .then(result => {
         if (result.val()) {
+          this.isLoading = false
           this.memos = result.val()
         }
       })

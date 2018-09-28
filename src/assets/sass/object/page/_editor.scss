@@ -28,49 +28,53 @@
     -webkit-overflow-scrolling: touch;
   }// .p-form_textarea
 
-    .ttl_list {
-      overflow: auto;
-      border-top: 1px solid #CCC;
-      -webkit-overflow-scrolling: touch;
-      .ttl_item {
-        display: flex;
-        border-bottom: 1px solid #CCC;
-        &:nth-child(odd) {
-          background-color: #E9F9FF;
-        }// &:nth-child(odd)
-        &[data-selected] {
+  .is-loading {
+    transform: scale(.5);
+  }// .is-loading
+
+  .ttl_list {
+    overflow: auto;
+    border-top: 1px solid #CCC;
+    -webkit-overflow-scrolling: touch;
+    .ttl_item {
+      display: flex;
+      border-bottom: 1px solid #CCC;
+      &:nth-child(odd) {
+        background-color: #E9F9FF;
+      }// &:nth-child(odd)
+      &[data-selected] {
+        background: #FFE;
+      }// &[data-selected]
+    }// .ttl_item
+    .ttl_name {
+      flex: 1;
+      width: 100%;
+      padding: ($ct_gutter * .75) $ct_gutter_half ($ct_gutter * .75) $ct_gutter;
+      font-size: fs(14);
+      cursor: pointer;
+      transition: all .35s;
+      @include elps;
+      &:hover {
+        background: #FFE;
+        + .c-btn-del {
           background: #FFE;
-        }// &[data-selected]
-      }// .ttl_item
-      .ttl_name {
-        flex: 1;
-        width: 100%;
-        padding: ($ct_gutter * .75) $ct_gutter_half ($ct_gutter * .75) $ct_gutter;
-        font-size: fs(14);
-        cursor: pointer;
-        transition: all .35s;
-        @include elps;
-        &:hover {
-          background: #FFE;
-          + .c-btn-del {
-            background: #FFE;
-          }// + .c-btn-del
-        }// &:hover
-      }// .ttl_name
-      .c-btn-del {
-        background: none;
-        width: 46px;
-        padding: 0;
-        border-radius: 0;
-        color: $font_color;
-        font-size: fs(20);
-        &:hover {
-          background: #FFE;
-          color: #E33;
-          font-size: fs(26);
-        }// &:hover
-      }// .c-btn-del
-    }// .ttl_list
+        }// + .c-btn-del
+      }// &:hover
+    }// .ttl_name
+    .c-btn-del {
+      background: none;
+      width: 46px;
+      padding: 0;
+      border-radius: 0;
+      color: $font_color;
+      font-size: fs(20);
+      &:hover {
+        background: #FFE;
+        color: #E33;
+        font-size: fs(26);
+      }// &:hover
+    }// .c-btn-del
+  }// .ttl_list
 
   @include mq(sp, max, true) {
 
