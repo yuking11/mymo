@@ -156,26 +156,34 @@ export default {
         return
       }
       this.isProcessing = true
-      firebase.auth().signInWithEmailAndPassword(this.email, this.password)
-        .then(user => {
-          this.isProcessing = false
-          const cUser = firebase.auth().currentUser
-          // Emailの確認もつけておく
-          if (!cUser.emailVerified) {
-            this.$router.push('/email_verified')
-          } else {
-            this.$router.push('/')
-          }
+      // firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
+      firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
+        .then(() => {
+          // New sign-in will be persisted with session persistence.
+          return firebase.auth().signInWithEmailAndPassword(this.email, this.password)
+            .then(user => {
+              this.isProcessing = false
+              const cUser = firebase.auth().currentUser
+              // Emailの確認もつけておく
+              if (!cUser.emailVerified) {
+                this.$router.push('/email_verified')
+              } else {
+                this.$router.push('/')
+              }
+            })
+            .catch(err => {
+              if (err.code === 'auth/invalid-email') {
+                alert('不正なメールアドレスです。')
+              } else if (err.code === 'auth/wrong-password') {
+                alert('パスワードが違います。')
+              } else if (err.code === 'auth/user-not-found') {
+                alert('登録されていないユーザーです。')
+              }
+              this.isProcessing = false
+            })
         })
         .catch(err => {
-          if (err.code === 'auth/invalid-email') {
-            alert('不正なメールアドレスです。')
-          } else if (err.code === 'auth/wrong-password') {
-            alert('パスワードが違います。')
-          } else if (err.code === 'auth/user-not-found') {
-            alert('登録されていないユーザーです。')
-          }
-          this.isProcessing = false
+          alert(err.code, err.message)
         })
     },
     googleLogin () {
