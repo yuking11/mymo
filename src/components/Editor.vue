@@ -88,12 +88,13 @@ export default {
       .once('value')
       .then(result => {
         if (result.val()) {
-          this.isLoading = false
           this.memos = result.val()
         }
+        this.isLoading = false
       })
       .catch(err => {
         alert(err.message)
+        this.isLoading = false
       })
   },
   methods: {
