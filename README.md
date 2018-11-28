@@ -4,7 +4,7 @@
 
 ## 公開URL
 
-https://mymo-cloud.firebaseapp.com/
+https://mymo.yuking11.net/
 
 ## A Vue.js project
 
