@@ -4,6 +4,7 @@
   "description": "A Vue.js project",
   "author": "@Yuking11 <ys11.works@gmail.com>",
   "private": true,
+  "licence": "No License",
   "scripts": {
     "dev": "node build/dev-server.js",
     "start": "node build/dev-server.js",
